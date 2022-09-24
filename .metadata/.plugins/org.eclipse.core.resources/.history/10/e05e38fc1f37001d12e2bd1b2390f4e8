@@ -1,0 +1,7 @@
+
+public class MyStack<E> {
+	ArrayList<E> stack;
+	int size;
+	
+	
+}

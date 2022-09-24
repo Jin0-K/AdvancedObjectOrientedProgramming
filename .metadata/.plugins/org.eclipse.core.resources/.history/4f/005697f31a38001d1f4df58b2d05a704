@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class MyStack<E> {
+	ArrayList<E> stack;
+	private int size;
+	
+	// Constructor
+	public MyStack() {
+		this.size = 0;
+	}
+	
+	// Method
+	public void push(E e) {
+		stack.add(e);
+		size++;
+	}
+	
+	public E pop() {
+		if (isEmpty()) {
+			System.out.println("Error;The stack is empty");
+			return null;
+		}
+		else {
+			E item = stack.get(size-1);
+			stack.remove(size-1);
+			size--;
+			return item;			
+		}
+	}
+	
+	public boolean isEmpty() {
+		return stack.isEmpty();
+	}
+	
+	public Iterator<Object> iterator() {
+        return new ArrayStackIterator();
+    }
+ 
+    private class ArrayStackIterator implements Iterator<Object>
+    {
+        private int i = size-1;
+ 
+        public boolean hasNext()
+        {
+            return (i > -1);
+        }
+ 
+        public Object next()
+        {
+            return stack.get(i--);
+        }
+    }
+}
