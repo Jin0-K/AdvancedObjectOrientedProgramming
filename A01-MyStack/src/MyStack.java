@@ -1,19 +1,17 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class MyStack<E> implements Iterable<Object>{
-	ArrayList<E> stack = new ArrayList<E>();
-	private int size;
+public class MyStack<E> implements Iterable<E>{
+	private ArrayList<E> stack;
 	
 	// Constructor
 	public MyStack() {
-		this.size = 0;
+		stack = new ArrayList<E>();
 	}
 	
 	// Methods
 	public void push(E e) {
 		stack.add(e);
-		size++;
 	}
 	
 	public E pop() {
@@ -22,40 +20,59 @@ public class MyStack<E> implements Iterable<Object>{
 			return null;
 		}
 		else {
-			E item = stack.get(size-1);
-			stack.remove(size-1);
-			size--;
+			E item = stack.get(stack.size()-1);
+			stack.remove(stack.size()-1);
 			return item;			
 		}
 	}
 	
 	public boolean isEmpty() {
 		return stack.isEmpty();
+		// return stack.size() == 0;
 	}
 	
 	// Inner class for Iterator
-	private class StackIterator implements Iterator {
-		MyStack<E> stack;
+	private class StackIterator implements Iterator<E> {
 		int count;
 		
-		protected StackIterator(MyStack stack) {
-		this.stack = stack;
+		protected StackIterator() {
 		count = 0;
 		}
 		
 		@Override
 		public boolean hasNext() {
-			return count < stack.size;
+			return count < stack.size();
 		}
 		
 		@Override
-		public Object next() {
-			return stack.stack.get(count++);
+		public E next() {
+			return stack.get(count++);
+		}
+	}
+		
+	// Alternative class for StackIterator
+	@SuppressWarnings("hiding")
+	class MyStackIterator<E> implements Iterator<E> {
+		private int index;
+		
+		public MyStackIterator() {
+			index = stack.size() - 1;
+		}
+		
+		public boolean hasNext() {
+			return index >= 0;
+		}
+		
+		public E next() {
+			@SuppressWarnings("unchecked")
+			E e = (E) stack.get(index--);
+			return e;
 		}
 	}
 	
 	// java.util.Iterable implementation
-	public Iterator<Object> iterator() {
-		return new StackIterator(this);
+	public Iterator<E> iterator() {
+		return new StackIterator();
+		// return new MyStackIterator<>();
 	}
 }
