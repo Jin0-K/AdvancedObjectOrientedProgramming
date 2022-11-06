@@ -1,0 +1,27 @@
+Group4:
+minBoundsX: 11, minBoundsY: 10
+maxBoundsX: 81, maxBoundsY: 71
+Rectangle4:
+minBoundsX: 51, minBoundsY: 22
+maxBoundsX: 81, maxBoundsY: 42
+Group3:
+minBoundsX: 11, minBoundsY: 10
+maxBoundsX: 64, maxBoundsY: 71
+Rectangle3:
+minBoundsX: 34, minBoundsY: 51
+maxBoundsX: 64, maxBoundsY: 71
+Group2:
+minBoundsX: 11, minBoundsY: 10
+maxBoundsX: 54, maxBoundsY: 32
+Triangle2:
+minBoundsX: 45, minBoundsY: 10
+maxBoundsX: 54, maxBoundsY: 20
+Group1:
+minBoundsX: 11, minBoundsY: 12
+maxBoundsX: 42, maxBoundsY: 32
+Triangle1:
+minBoundsX: 11, minBoundsY: 15
+maxBoundsX: 30, maxBoundsY: 21
+Rectangle1:
+minBoundsX: 12, minBoundsY: 12
+maxBoundsX: 42, maxBoundsY: 32
