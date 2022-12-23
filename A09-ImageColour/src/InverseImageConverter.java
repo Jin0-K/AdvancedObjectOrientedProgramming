@@ -1,11 +1,9 @@
 import java.awt.image.*;
-//import java.awt.Image.BufferedImage;
 import java.awt.Color;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-//import java.imageio.*;
 
 class InverseImageConverter {
     public static void main(String[] args) {
